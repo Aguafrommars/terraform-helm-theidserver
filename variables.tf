@@ -69,9 +69,8 @@ variable "env_settings" {
 }
 
 variable "override_setting" {
-  type = map
+  type = any
   description = "Override helm settings"
-  sensitive = true
   default = {}
 }
 
