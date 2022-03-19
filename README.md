@@ -33,6 +33,8 @@ module "theidserver" {
 This will setup [TheIdServer](https://github.com/Aguafrommars/TheIdServer) on **https://www.theidserver.com** with the admin user **admin@theidserver.com** and its [Seq](https://datalust.co/) server on **https://seq.theidserver.com**.  
 By default resouces are created in the *theidserver* namespace.
 
+> We recommande to protect the Seq server with a user/pwd.
+
 ### Docker image
 
 By default the [TheIdServer helm chart](https://artifacthub.io/packages/helm/aguafrommars/theidserver) install the [IdentityServer4](https://github.com/Aguafrommars/TheIdServer/blob/master/src/Aguacongas.TheIdServer.IS4/README.md) version.  
