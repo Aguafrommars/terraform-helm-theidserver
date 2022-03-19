@@ -1,61 +1,83 @@
-variable "ssl_common_name"{
+variable "host" {
   type = string
-  description = "TheIdServer SSL common name"
+  description = "The host"
+}
+
+variable "tls_issuer_name" {
+  type = string
+  description = "The name of the certificat issuer to use"
+}
+
+variable "tls_issuer_kind" {
+  type = string
+  description = "The kind of the certificat issuer to use (Issuer or ClusterIssuer)"
+}
+
+variable "chart_version" {
+  type = string
+  description = "(Optional) The Helm chart version"
+  default = "4.6.0"
+}
+
+variable "namespace" {
+  type = string
+  description = "(Optional) Kubernetes namespace"
   default = "theidserver"
 }
 
-variable "ssl_organization"{
+variable "create_namespace" {
+  type = bool
+  description = "(Optional) Creates the kubernetes namespace if not exists"
+  default = true
+}
+
+variable "release_name" {
   type = string
-  description = "TheIdServer SSL organization"
-  default = "TheIdServer"
-}
-
-variable "ca_common_name"{
-  type = string
-  description = "ca certificates common name"
-  default = "aguafommmars CA"
-}
-
-variable "ca_organization"{
-  type = string
-  description = "ca certificates organization"
-  default = "Agua from Mars"
-}
-
-variable "cert_dns_names" {
-  type = list(string)
-  description = "certificates request dns names list"
-  default = [ "theidserver.com", "localhost", "localhost:5443" ]
-}
-
-variable "cert_uris" {
-  type = list(string)
-  description = "certificates request uri list"
-  default = [ "127.0.0.1" ]
-}
-
-variable "kubernetes" {
-  type = any
-  description = "kubernetes configuration"
-  default = {
-    config_path = "~/.kube/config"
-  }
-}
-
-variable "replicaCount" {
-  type = number
-  description = "replica count"
-  default = 1
+  description = "(Optional) Helm release name"
+  default = "theidserver"
 }
 
 variable "reuse_values" {
   type = bool
-  description = "reuse value for helm chart"
-  default = true
+  description = "(Optional) reuse value for helm chart"
+  default = false
 }
 
 variable "recreate_pods" {
   type = bool
-  description = "recreate pods"
+  description = "(Optional) recreate pods"
+  default = false
+}
+
+variable "wait" {
+  type = bool
+  description = "(Optional) Wait for helm release to be ready"
   default = true
+}
+
+variable "replica_count" {
+  type = number
+  description = "(Optional) Number of server pod"
+  default = 3
+}
+
+variable "env_settings" {
+  type = map(string)
+  description = "Env var setting"
+  sensitive = true
+  default = {}
+}
+
+variable "override_setting" {
+  type = map
+  description = "Override helm settings"
+  sensitive = true
+  default = {}
+}
+
+variable "image" {
+  type = map(string)
+  description = "The docker image"
+  default = {
+  }
 }
