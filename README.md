@@ -149,7 +149,7 @@ This sample setup the Email Sender url using the appsettings.json file.
 |wait|(Optional) Wait for helm release to be ready|bool|true|
 |replica_count|(Optional) Number of server pod|number|3|
 |env_settings|(Optional) Env var settings|map(string)|{}|
-|override_setting|(Optional) Override helm chart settings|map|{}|
+|override_setting|(Optional) Override helm chart settings|any|{}|
 |image|(Optional) Override Helm chart image|map(string)|{}|
 
 ## Outputs
