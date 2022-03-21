@@ -1,6 +1,6 @@
 # Basic usage
 
-```
+``` hcl
 provider "helm" {
   kubernetes {
     config_path = "C:/Users/LefebvreO/.kube/config"

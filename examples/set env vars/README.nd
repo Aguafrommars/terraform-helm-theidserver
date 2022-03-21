@@ -2,7 +2,7 @@
 
 This sample set SendGrid credentials from input through env vars.
 
-```
+``` hcl
 provider "helm" {
   kubernetes {
     config_path = "C:/Users/LefebvreO/.kube/config"

@@ -2,7 +2,7 @@
 
 This sample use the lastest built Duende version.
 
-```
+``` hcl
 provider "helm" {
   kubernetes {
     config_path = var.kubeconfig_path
