@@ -17,7 +17,7 @@ The module setup ingresses for [TheIdServer](https://github.com/Aguafrommars/The
 ```
 provider "helm" {
   kubernetes {
-    config_path = "C:/Users/LefebvreO/.kube/config"
+    config_path = var.kubeconfig_path
   }
 }
 
