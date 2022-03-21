@@ -180,9 +180,6 @@ locals {
       welcomeContenUrl = format("https://www.%s/api/welcomefragment", var.host)
     }
     replicaCount = var.replica_count
-    podAnnotations = {
-      deployment-date = timestamp()
-    }
     ingress = {
       enabled = true
       annotations = {
@@ -271,7 +268,7 @@ locals {
 resource "helm_release" "theidserver" {
   name       = var.release_name
   repository = "https://aguafrommars.github.io/helm"
-  chart      = "theidserver"
+  chart      = "C:\\Projects\\Perso\\helm\\charts\\theidserver"
   version    = var.chart_version
   namespace  = var.namespace
   create_namespace = var.create_namespace

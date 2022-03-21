@@ -14,10 +14,10 @@ You can follow the [Create an HTTPS ingress controller on Azure Kubernetes Servi
 
 The module setup ingresses for [TheIdServer](https://github.com/Aguafrommars/TheIdServer) and [Seq](https://datalust.co/) using the **host** input variable.
 
-```
+``` hcl
 provider "helm" {
   kubernetes {
-    config_path = "C:/Users/LefebvreO/.kube/config"
+    config_path = var.kubeconfig_path
   }
 }
 
@@ -40,7 +40,7 @@ By default resouces are created in the *theidserver* namespace.
 By default the [TheIdServer helm chart](https://artifacthub.io/packages/helm/aguafrommars/theidserver) install the [IdentityServer4](https://github.com/Aguafrommars/TheIdServer/blob/master/src/Aguacongas.TheIdServer.IS4/README.md) version.  
 If you prefer to use the [Duende IdentityServer](https://github.com/Aguafrommars/TheIdServer/blob/master/src/Aguacongas.TheIdServer.Duende/README.md) version configure the **image** input to override the default docker image configuration.
 
-```
+``` hcl
 module "theidserver" {
   source = "Aguafrommars/theidserver/helm"
 
@@ -74,7 +74,7 @@ SE!OfFGOm}(5v3wF
 [TheIdServer](https://github.com/Aguafrommars/TheIdServer) needs to send email to verify users emails or for CIBA. The default Email service implementation use [SendGrid](https://sendgrid.com/) and read user and API key from configuration.  
 The **env_settings** input can be use to pass environments variables to containers, so we can ovveride the configuration using environment variables. 
 
-```
+``` hcl
 module "theidserver" {
   source = "Aguafrommars/theidserver/helm"
 
@@ -92,7 +92,7 @@ This sample setup [SendGrid](https://sendgrid.com/) environment variables used b
 
 If you want to use your Email sender, you need to implement a web api and setup its url. [Read the doc](https://github.com/Aguafrommars/TheIdServer/blob/master/src/Aguacongas.TheIdServer.Duende/README.md#use-your-api). 
 
-```
+``` hcl
 module "theidserver" {
   source = "Aguafrommars/theidserver/helm"
 
@@ -112,7 +112,7 @@ This sampel setup the Email Sender url using environment variable.
 
 You can use the **override_setting** input to override the [TheIdServer helm chart](https://artifacthub.io/packages/helm/aguafrommars/theidserver).
 
-```
+``` hcl
 module "theidserver" {
   source = "Aguafrommars/theidserver/helm"
 
@@ -135,8 +135,8 @@ This sample setup the Email Sender url using the appsettings.json file.
 
 ## Inputs
 
-|Name|Description|Type|Default|
-|-|-|-|-|
+|Name|Description|Type|Default|  
+|----|-----------|----|-------|  
 |host|The host|string||
 |tls_issuer_name|The name of the certificat issuer to use|string||
 |tls_issuer_kind|The kind of the certificat issuer to use (Issuer or ClusterIssuer)|string||
@@ -154,8 +154,8 @@ This sample setup the Email Sender url using the appsettings.json file.
 
 ## Outputs
 
-|Name|Description|Type|Sensitive|
-|-|-|-|-|
+|Name|Description|Type|Sensitive|  
+|----|-----------|----|---------|  
 |admin_name|The generated admin user name|string|false|
 |admin_password|The generated admin user password|string|true|
 

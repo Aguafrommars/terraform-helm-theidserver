@@ -1,8 +1,8 @@
-# Override settings
+# Set docker image
 
-This sample override the Email sender API url with the url passed in input.
+This sample use the lastest built Duende version.
 
-```
+``` hcl
 provider "helm" {
   kubernetes {
     config_path = var.kubeconfig_path
@@ -16,14 +16,10 @@ module "theidserver" {
   tls_issuer_name = "letsencrypt"
   tls_issuer_kind = "ClusterIssuer"
 
-  override_setting = {
-    appSettings = {
-      file = {
-        EmailApiAuthentication = {
-          ApiUrl = var.api_url
-        }
-      }
-    }
+  image = {
+    repository = "aguacongas/theidserver.duende"
+    pullPolicy = "Always"
+    tag = "next"
   }
 }
 ```
