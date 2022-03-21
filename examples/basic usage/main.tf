@@ -1,11 +1,11 @@
 provider "helm" {
   kubernetes {
-    config_path = "C:/Users/LefebvreO/.kube/config"
+    config_path = var.kubeconfig_path
   }
 }
 
 module "theidserver" {
-  source = "terraform-helm-theidserver"
+  source = "Aguafrommars/theidserver/helm"
 
   host = "theidserver.com"
   tls_issuer_name = "letsencrypt"

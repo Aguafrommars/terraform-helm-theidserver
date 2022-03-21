@@ -1,3 +1,8 @@
+# Set env vars
+
+This sample set SendGrid credentials from input through env vars.
+
+```
 provider "helm" {
   kubernetes {
     config_path = "C:/Users/LefebvreO/.kube/config"
@@ -5,14 +10,15 @@ provider "helm" {
 }
 
 module "theidserver" {
-  source = "terraform-helm-theidserver"
+  source = "Aguafrommars/theidserver/helm"
 
   host = "theidserver.com"
   tls_issuer_name = "letsencrypt"
   tls_issuer_kind = "ClusterIssuer"
 
   env_settings = {
-    SendGridUser = "<SENDGRID_USER>"
-    SendGridKey = "<SENDGRID_API_KEY>"
+    SendGridUser = var.sendgrid_user
+    SendGridKey = var.sendgrid_api_key
   }
 }
+```

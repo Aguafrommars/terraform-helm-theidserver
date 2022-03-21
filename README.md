@@ -22,7 +22,7 @@ provider "helm" {
 }
 
 module "theidserver" {
-  source = "terraform-helm-theidserver"
+  source = "Aguafrommars/theidserver/helm"
 
   host = "theidserver.com"
   tls_issuer_name = "letsencrypt"
@@ -42,7 +42,7 @@ If you prefer to use the [Duende IdentityServer](https://github.com/Aguafrommars
 
 ```
 module "theidserver" {
-  source = "terraform-helm-theidserver"
+  source = "Aguafrommars/theidserver/helm"
 
   host = "theidserver.com"
   tls_issuer_name = "letsencrypt"
@@ -76,7 +76,7 @@ The **env_settings** input can be use to pass environments variables to containe
 
 ```
 module "theidserver" {
-  source = "terraform-helm-theidserver"
+  source = "Aguafrommars/theidserver/helm"
 
   host = "theidserver.com"
   tls_issuer_name = "letsencrypt"
@@ -94,7 +94,7 @@ If you want to use your Email sender, you need to implement a web api and setup 
 
 ```
 module "theidserver" {
-  source = "terraform-helm-theidserver"
+  source = "Aguafrommars/theidserver/helm"
 
   host = "theidserver.com"
   tls_issuer_name = "letsencrypt"
@@ -114,7 +114,7 @@ You can use the **override_setting** input to override the [TheIdServer helm cha
 
 ```
 module "theidserver" {
-  source = "terraform-helm-theidserver"
+  source = "Aguafrommars/theidserver/helm"
 
   host = "theidserver.com"
   tls_issuer_name = "letsencrypt"
