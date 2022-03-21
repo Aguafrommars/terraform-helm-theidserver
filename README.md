@@ -135,8 +135,8 @@ This sample setup the Email Sender url using the appsettings.json file.
 
 ## Inputs
 
-|Name|Description|Type|Default|
-|-|-|-|-|
+|Name|Description|Type|Default|  
+|----|-----------|----|-------|  
 |host|The host|string||
 |tls_issuer_name|The name of the certificat issuer to use|string||
 |tls_issuer_kind|The kind of the certificat issuer to use (Issuer or ClusterIssuer)|string||
@@ -154,8 +154,8 @@ This sample setup the Email Sender url using the appsettings.json file.
 
 ## Outputs
 
-|Name|Description|Type|Sensitive|
-|-|-|-|-|
+|Name|Description|Type|Sensitive|  
+|----|-----------|----|---------|  
 |admin_name|The generated admin user name|string|false|
 |admin_password|The generated admin user password|string|true|
 
