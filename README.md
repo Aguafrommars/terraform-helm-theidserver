@@ -92,7 +92,7 @@ This sample setup [SendGrid](https://sendgrid.com/) environment variables used b
 
 If you want to use your Email sender, you need to implement a web api and setup its url. [Read the doc](https://github.com/Aguafrommars/TheIdServer/blob/master/src/Aguacongas.TheIdServer.Duende/README.md#use-your-api). 
 
-```
+``` hcl
 module "theidserver" {
   source = "Aguafrommars/theidserver/helm"
 
