@@ -43,7 +43,7 @@ locals {
       ports = {
         https = 443
       }
-    }
+    }    
     appSettings = {
       env = var.env_settings
       file = {
@@ -268,14 +268,14 @@ locals {
 resource "helm_release" "theidserver" {
   name       = var.release_name
   repository = "https://aguafrommars.github.io/helm"
-  chart      = "C:\\Projects\\Perso\\helm\\charts\\theidserver"
+  chart      = var.chart
   version    = var.chart_version
   namespace  = var.namespace
   create_namespace = var.create_namespace
   
   values = [
     yamlencode(local.settings),
-    yamlencode(var.override_setting)
+    yamlencode(var.override_settings)
   ]
 
   reuse_values = var.reuse_values
