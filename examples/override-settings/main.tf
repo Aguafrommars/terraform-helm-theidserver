@@ -11,7 +11,7 @@ module "theidserver" {
   tls_issuer_name = "letsencrypt"
   tls_issuer_kind = "ClusterIssuer"
 
-  override_setting = {
+  override_settings = {
     appSettings = {
       file = {
         EmailApiAuthentication = {

@@ -110,7 +110,7 @@ This sampel setup the Email Sender url using environment variable.
 
 ### Override config
 
-You can use the **override_setting** input to override the [TheIdServer helm chart](https://artifacthub.io/packages/helm/aguafrommars/theidserver).
+You can use the **override_settings** input to override the [TheIdServer helm chart](https://artifacthub.io/packages/helm/aguafrommars/theidserver).
 
 ``` hcl
 module "theidserver" {
@@ -120,7 +120,7 @@ module "theidserver" {
   tls_issuer_name = "letsencrypt"
   tls_issuer_kind = "ClusterIssuer"
 
-  override_setting = {
+  override_settings = {
     appSettings = {
       file = {
         EmailApiAuthentication = {
@@ -140,7 +140,8 @@ This sample setup the Email Sender url using the appsettings.json file.
 |host|The host|string||
 |tls_issuer_name|The name of the certificat issuer to use|string||
 |tls_issuer_kind|The kind of the certificat issuer to use (Issuer or ClusterIssuer)|string||
-|chart_version|(Optional) The Helm chart version|string|"4.6.0"|
+|chart|(Optional) The Helm chart|string|"theidserver"|
+|chart_version|(Optional) The Helm chart version|string|"4.7.0"|
 |namespace|(Optional) Kubernetes namespace|string|"theidserver"|
 |create_namespace|(Optional) Creates the kubernetes namespace if not exists|bool|true|
 |release_name|(Optional) Helm release name|string|"theidserver"|
@@ -149,7 +150,7 @@ This sample setup the Email Sender url using the appsettings.json file.
 |wait|(Optional) Wait for helm release to be ready|bool|true|
 |replica_count|(Optional) Number of server pod|number|3|
 |env_settings|(Optional) Env var settings|map(string)|{}|
-|override_setting|(Optional) Override helm chart settings|any|{}|
+|override_settings|(Optional) Override helm chart settings|any|{}|
 |image|(Optional) Override Helm chart image|map(string)|{}|
 
 ## Outputs

@@ -74,7 +74,7 @@ variable "env_settings" {
   default = {}
 }
 
-variable "override_setting" {
+variable "override_settings" {
   type = any
   description = "Override helm settings"
   default = {}

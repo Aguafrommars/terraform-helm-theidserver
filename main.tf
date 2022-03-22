@@ -43,7 +43,7 @@ locals {
       ports = {
         https = 443
       }
-    }
+    }    
     appSettings = {
       env = var.env_settings
       file = {
@@ -275,7 +275,7 @@ resource "helm_release" "theidserver" {
   
   values = [
     yamlencode(local.settings),
-    yamlencode(var.override_setting)
+    yamlencode(var.override_settings)
   ]
 
   reuse_values = var.reuse_values
