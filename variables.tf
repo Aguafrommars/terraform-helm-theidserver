@@ -13,10 +13,16 @@ variable "tls_issuer_kind" {
   description = "The kind of the certificat issuer to use (Issuer or ClusterIssuer)"
 }
 
+variable "chart" {
+  type = string
+  description = "(Optional) The Helm chart"
+  default = "theidserver"
+}
+
 variable "chart_version" {
   type = string
   description = "(Optional) The Helm chart version"
-  default = "4.6.0"
+  default = "4.7.0"
 }
 
 variable "namespace" {
