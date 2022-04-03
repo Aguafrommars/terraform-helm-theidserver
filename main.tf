@@ -211,13 +211,13 @@ locals {
     }
     dataProtection = {
       create = false
-      crt = "${base64encode(tls_locally_signed_cert.data_protection.cert_pem)}"
-      key = "${base64encode(tls_private_key.data_protection_private_key.private_key_pem)}"
+      crt = fileexists("data_protection.pem") ? "${base64encode(file("data_protection.pem"))}" : "${base64encode(tls_locally_signed_cert.data_protection.cert_pem)}"
+      key = fileexists("data_protection_private_key.pem") ? "${base64encode(file("data_protection_private_key.pem"))}" : "${base64encode(tls_private_key.data_protection_private_key.private_key_pem)}"
     }
     signingKey = {
       create = false
-      crt = "${base64encode(tls_locally_signed_cert.signing_key.cert_pem)}"
-      key = "${base64encode(tls_private_key.signing_key_private_key.private_key_pem)}"
+      crt = fileexists("signing_key.pem") ? "${base64encode(file("signing_key.pem"))}" : "${base64encode(tls_locally_signed_cert.signing_key.cert_pem)}"
+      key = fileexists("signing_key_private_key.pem") ? "${base64encode(file("signing_key_private_key.pem"))}" : "${base64encode(tls_private_key.signing_key_private_key.private_key_pem)}"
     }
     mysql = {
       architecture = "replication"
