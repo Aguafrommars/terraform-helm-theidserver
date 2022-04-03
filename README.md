@@ -160,4 +160,15 @@ This sample setup the Email Sender url using the appsettings.json file.
 |admin_name|The generated admin user name|string|false|
 |admin_password|The generated admin user password|string|true|
 
+## Upgrading from 1.0.x to 2.0.0
 
+Stores protections keys duration was not long enough in version 1.0.x. since version 2.0.0 the duration 1000 years but to upgrade from 1.0.x you must save stores protection keys in *.pem* files at your terraform root or the server will not be able to read your dataprotection keys and signing keys any more :
+
+```bash
+kubectl get secrets theidserver-certs -n theidserver -o jsonpath="{.data['dataProtection\.crt']}" | base64 -d >> data_protection.pem
+kubectl get secrets theidserver-certs -n theidserver -o jsonpath="{.data['dataProtection\.key']}" | base64 -d >> data_protection_private_key.pem
+kubectl get secrets theidserver-certs -n theidserver -o jsonpath="{.data['signingKey\.crt']}" | base64 -d >> signing_key.pem
+kubectl get secrets theidserver-certs -n theidserver -o jsonpath="{.data['signingKey\.key']}" | base64 -d >> signing_key_private_key.pem
+```
+
+The version 2.0.0 and above check if those files exists and use them instead of generated certificates.
