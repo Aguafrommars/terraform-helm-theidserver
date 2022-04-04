@@ -61,7 +61,7 @@ resource "tls_locally_signed_cert" "data_protection" {
   ca_private_key_pem = fileexists("cert_request.pem") ? "${file("ca_private_key.pem")}" : "${tls_private_key.ca_private_key.private_key_pem}"
   ca_cert_pem        = fileexists("ca_cert.pem") ? "${file("ca_cert.pem")}" : "${tls_self_signed_cert.ca.cert_pem}"
 
-  validity_period_hours = 8760000
+  validity_period_hours = 876000
 
   allowed_uses = [   
     "digital_signature", 
@@ -76,7 +76,7 @@ resource "tls_locally_signed_cert" "signing_key" {
   ca_private_key_pem = fileexists("cert_request.pem") ? "${file("ca_private_key.pem")}" : "${tls_private_key.ca_private_key.private_key_pem}"
   ca_cert_pem        = fileexists("ca_cert.pem") ? "${file("ca_cert.pem")}" : "${tls_self_signed_cert.ca.cert_pem}"
 
-  validity_period_hours = 8760000
+  validity_period_hours = 876000
 
   allowed_uses = [   
     "digital_signature", 
