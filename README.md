@@ -1,4 +1,4 @@
-# TheidServer Helm Terraform module
+# TheIdServer Helm Terraform module
 
 This module create a [TheIdServer](https://github.com/Aguafrommars/TheIdServer) cluster using the [TheIdServer helm chart](https://artifacthub.io/packages/helm/aguafrommars/theidserver) with its MySql DB, Redis cluster and [Seq](https://datalust.co/) server.
 
