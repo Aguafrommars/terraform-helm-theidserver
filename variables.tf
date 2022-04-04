@@ -22,7 +22,7 @@ variable "chart" {
 variable "chart_version" {
   type = string
   description = "(Optional) The Helm chart version"
-  default = "4.7.0"
+  default = "4.8.0"
 }
 
 variable "namespace" {
